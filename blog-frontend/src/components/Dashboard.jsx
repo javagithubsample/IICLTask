@@ -44,7 +44,7 @@ export default function Dashboard() {
         ).sort((a, b) => b[1] - a[1])[0][0]
       : "N/A";
 
-  const recentBlogs = blogs.slice(-5).reverse(); // latest 5
+  const recentBlogs = blogs.slice(-5).reverse(); 
 
   return (
     <Box>
