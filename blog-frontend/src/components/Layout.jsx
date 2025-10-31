@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { removeToken } from "../utils/auth";
 import {
   AppBar,
   Box,
@@ -31,6 +33,17 @@ export default function Layout() {
     setMobileOpen(!mobileOpen);
   };
 
+  const navigate = useNavigate();
+
+const handleLogout = () => {
+  if (window.confirm("Are you sure you want to logout?")) {
+    localStorage.clear();
+    toast.success("Logged out successfully!");
+    navigate("/login");
+  }
+};
+
+
   const drawer = (
     <div>
       <Toolbar>
@@ -62,14 +75,12 @@ export default function Layout() {
         </ListItem>
       </List>
       <Divider sx={{ mt: "auto" }} />
-      <List>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon><LogoutIcon color="error" /></ListItemIcon>
-            <ListItemText primary="Logout" />
-          </ListItemButton>
-        </ListItem>
-      </List>
+     <ListItem disablePadding>
+  <ListItemButton onClick={handleLogout}>
+    <ListItemIcon><LogoutIcon color="error" /></ListItemIcon>
+    <ListItemText primary="Logout" />
+  </ListItemButton>
+</ListItem>
     </div>
   );
 

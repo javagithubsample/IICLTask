@@ -31,7 +31,7 @@ export default function Dashboard() {
     }
   };
 
-  // Calculate Stats
+  
   const totalBlogs = blogs.length;
   const authors = blogs.map((b) => b.author);
   const topAuthor =

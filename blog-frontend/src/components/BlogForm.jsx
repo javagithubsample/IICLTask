@@ -19,7 +19,7 @@ export default function BlogForm() {
 
   const handleSubmit = async (e) => {
   e.preventDefault();
-  console.log("Submitting blog:", blog); 
+  console.log("Submitting blog:", blog); // ✅ add this line
   if (id) {
     await updateBlog(id, blog);
     toast.success("Blog updated!");
